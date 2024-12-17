@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   str_strchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 09:30:13 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2023/10/13 19:15:54 by marvin            #+#    #+#             */
+/*   Updated: 2024/12/17 17:58:35 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*str_strchr(const char *s, int c)
 {
-	char	*r;
-	size_t	i;
-	char	max;
+	int	i;
 
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
 	i = 0;
-	if (ft_strlen(s) - start > len)
-		max = len;
-	else
-		max = ft_strlen(s) - start;
-	r = malloc((max * sizeof(char)) + 1);
-	if (!r)
-		return (NULL);
-	while (s[i + start] && i < len)
+	while (s[i])
 	{
-		r[i] = s[i + start];
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
 		i++;
 	}
-	r[i] = '\0';
-	return (r);
+	if ((char)c == '\0')
+		return ((char *)(s + i));
+	return (NULL);
 }

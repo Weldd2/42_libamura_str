@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   str_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 22:53:40 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:52 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 18:01:26 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	str_count_words(char const *s, char c)
 {
 	int	i;
 	int	is_word;
@@ -37,7 +37,7 @@ static int	ft_count_words(char const *s, char c)
 	return (r);
 }
 
-static int	ft_getword_l(char *s, char c)
+static int	str_getword_l(char *s, char c)
 {
 	int	word_l;
 
@@ -56,7 +56,7 @@ static char	*a(char *s, char c)
 {
 	int	i;
 
-	i = ft_strlen(s) - 1;
+	i = str_strlen(s) - 1;
 	while (*(s + i) && *(s + i) == c)
 		i--;
 	while (*s && *s == c)
@@ -64,27 +64,27 @@ static char	*a(char *s, char c)
 	return (s);
 }
 
-char	**ft_split(char *s, char c)
+char	**str_split(char *s, char c)
 {
 	char	**r;
 	int		word_l;
 	int		i;
 
 	i = 0;
-	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	r = malloc(sizeof(char *) * (str_count_words(s, c) + 1));
 	if (!r)
 		return (NULL);
 	s = a(s, c);
 	while (*s)
 	{
-		word_l = ft_getword_l(s, c);
+		word_l = str_getword_l(s, c);
 		r[i] = (char *)malloc(sizeof(char) * (word_l + (word_l != 0)));
 		if (!r[i])
 			return (NULL);
 		s = a(s, c);
 		if (!*s)
 			break ;
-		ft_strlcpy(r[i], s, word_l + 1);
+		str_strlcpy(r[i], s, word_l + 1);
 		s += word_l;
 		i++;
 		s = a(s, c);

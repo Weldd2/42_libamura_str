@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   str_strlcat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 16:41:13 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2023/10/13 19:00:46 by marvin            #+#    #+#             */
+/*   Updated: 2024/12/17 18:01:26 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strdup(const char *s)
+size_t	str_strlcat(char *dest, const char *src, size_t size)
 {
-	char	*s_cpy;
-	size_t	s_len;
-	size_t	compteur;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	i;
 
-	compteur = 0;
-	s_len = ft_strlen(s);
-	s_cpy = malloc((sizeof(char) * s_len) + 1);
-	if (!s_cpy)
-		return (NULL);
-	while (compteur < s_len)
+	dest_len = str_strlen(dest);
+	src_len = str_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
+	i = 0;
+	while (src[i] && (dest_len + i) < (size - 1))
 	{
-		s_cpy[compteur] = s[compteur];
-		compteur++;
+		dest[dest_len + i] = src[i];
+		i++;
 	}
-	s_cpy[compteur] = '\0';
-	return (s_cpy);
+	if ((dest_len + i) < size)
+		dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }

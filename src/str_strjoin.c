@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   str_strjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:46:02 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:40:53 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 18:09:11 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*str_strjoin(char const *s1, char const *s2)
 {
 	char	*s;
 	int		i;
 	int		j;
 
-	s = (char *)malloc(sizeof(char) * (ft_strlen(s2) + ft_strlen(s1) + 1));
+	s = (char *)malloc(sizeof(char) * (str_strlen(s2) + str_strlen(s1) + 1));
 	if (!s)
 		return (NULL);
 	i = 0;
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (s);
 }
 
-char *ft_strvjoin(char *str, ...)
+char	*str_strvjoin(char *str, ...)
 {
 	va_list	ap;
 	char	*r;
@@ -58,7 +58,7 @@ char *ft_strvjoin(char *str, ...)
 	while (next_str != NULL)
 	{
 		temp = r;
-		r = ft_strjoin(r, next_str);
+		r = str_strjoin(r, next_str);
 		free(temp);
 		if (!r)
 			return (va_end(ap), NULL);

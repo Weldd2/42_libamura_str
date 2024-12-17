@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   str_strmapi.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 14:13:21 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
+/*   Updated: 2024/12/17 18:10:26 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*start;
-	char	*end;
 	char	*r;
-	char	*r_cpy;
+	int		c;
 
-	if (!s1 || !set)
+	if (s == NULL || f == NULL)
 		return (NULL);
-	start = (char *)s1;
-	end = (char *)(s1 + ft_strlen(s1) - 1);
-	while (*start && ft_strchr(set, *start))
-		start++;
-	while (end >= start && ft_strchr(set, *end))
-		end--;
-	r = (char *)malloc(1 + (end - start + 1) * sizeof(char));
+	c = 0;
+	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
 	if (!r)
 		return (NULL);
-	r_cpy = r;
-	while (start <= end)
+	while (s[c])
 	{
-		*r = *start;
-		r++;
-		start++;
+		r[c] = f(c, s[c]);
+		c++;
 	}
-	*r = '\0';
-	return (r_cpy);
+	r[c] = '\0';
+	return (r);
 }

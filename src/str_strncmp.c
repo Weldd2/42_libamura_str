@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   str_strncmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:42:50 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 17:59:13 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	str_strncmp(const char *s1, const char *s2, size_t n)
 {
 	while (n && *s1 && *s2 && *s1 == *s2)
 	{

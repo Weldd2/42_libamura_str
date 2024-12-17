@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   str_strlcpy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 12:21:16 by amura             #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 17:59:05 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	str_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 

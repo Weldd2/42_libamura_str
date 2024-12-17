@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   str_strendwith.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 07:21:03 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/04/06 14:57:57 by antoinemura       #+#    #+#             */
+/*   Updated: 2024/12/17 18:01:26 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	str_strendwith(char *string, char *test)
 {
-	char	*r;
-	int		c;
+	int	str_l;
+	int	test_l;
+	int	i;
+	int	j;
+	int	valid;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	valid = 1;
+	str_l = (int)str_strlen(string);
+	test_l = (int)str_strlen(test);
+	i = str_l - test_l;
+	j = 0;
+	while (i < str_l)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		if (string[i] != test[j])
+			valid = 0;
+		i++;
+		j++;
 	}
-	r[c] = '\0';
-	return (r);
+	return (valid);
 }

@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   str_strequals.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 12:27:05 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/05/17 20:01:41 by antoinemura       #+#    #+#             */
+/*   Updated: 2024/12/17 17:58:43 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	str_strequals(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	if (*needle == '\0')
-		return ((char *)(haystack));
-	while (haystack[i] && len > i)
-	{
-		j = 0;
-		while ((haystack[i + j] == needle[j]) && len > i + j)
-		{
-			if (needle[j + 1] == '\0')
-				return ((char *)(haystack + i));
-			j++;
-		}
+	while (s1[i] && s1[i] == s2[i])
 		i++;
-	}
-	return (NULL);
+	return (s1[i] == '\0' && s2[i] == '\0');
 }

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   str_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 19:21:47 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2023/10/13 16:41:13 by marvin            #+#    #+#             */
+/*   Updated: 2024/12/17 18:01:26 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*str_strdup(const char *s)
 {
-	char	*last_occurrence;
-	int		i;
+	char	*s_cpy;
+	size_t	s_len;
+	size_t	compteur;
 
-	i = 0;
-	last_occurrence = NULL;
-	while (1)
+	compteur = 0;
+	s_len = str_strlen(s);
+	s_cpy = malloc((sizeof(char) * s_len) + 1);
+	if (!s_cpy)
+		return (NULL);
+	while (compteur < s_len)
 	{
-		if (s[i] == (char)c)
-			last_occurrence = (s + i);
-		if (s[i] == '\0')
-			break ;
-		i++;
+		s_cpy[compteur] = s[compteur];
+		compteur++;
 	}
-	return (last_occurrence);
+	s_cpy[compteur] = '\0';
+	return (s_cpy);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequals.c                                     :+:      :+:    :+:   */
+/*   str_strlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 20:01:41 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2023/10/13 16:36:22 by marvin            #+#    #+#             */
+/*   Updated: 2024/12/17 17:59:09 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-int	ft_strequals(char *s1, char *s2)
+size_t	str_strlen(const char *s)
 {
-	int	i;
+	const char		*s_cpy;
+	size_t			compteur;
 
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] == '\0' && s2[i] == '\0');
+	s_cpy = s;
+	compteur = 0;
+	while (*s_cpy)
+	{
+		compteur++;
+		s_cpy++;
+	}
+	return (compteur);
 }

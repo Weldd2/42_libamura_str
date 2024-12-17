@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_end_with.c                                  :+:      :+:    :+:   */
+/*   str_substr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 14:57:57 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 02:38:50 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/12/17 18:09:43 by antoinemura       #+#    #+#             */
+/*   Updated: 2024/12/17 18:09:44 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-int	ft_str_end_with(char *string, char *test)
+char	*str_substr(char const *s, unsigned int start, size_t len)
 {
-	int	str_l;
-	int	test_l;
-	int	i;
-	int	j;
-	int	valid;
+	char	*r;
+	size_t	i;
+	char	max;
 
-	valid = 1;
-	str_l = (int)ft_strlen(string);
-	test_l = (int)ft_strlen(test);
-	i = str_l - test_l;
-	j = 0;
-	while (i < str_l)
+	if (start > str_strlen(s))
+		return (str_strdup(""));
+	i = 0;
+	if (str_strlen(s) - start > len)
+		max = len;
+	else
+		max = str_strlen(s) - start;
+	r = malloc((max * sizeof(char)) + 1);
+	if (!r)
+		return (NULL);
+	while (s[i + start] && i < len)
 	{
-		if (string[i] != test[j])
-			valid = 0;
+		r[i] = s[i + start];
 		i++;
-		j++;
 	}
-	return (valid);
+	r[i] = '\0';
+	return (r);
 }
