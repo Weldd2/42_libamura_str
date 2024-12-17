@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:09:43 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 18:09:44 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 19:13:17 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*str_substr(char const *s, unsigned int start, size_t len)
 		max = len;
 	else
 		max = str_strlen(s) - start;
-	r = malloc((max * sizeof(char)) + 1);
+	r = mem_arena_alloc((max * sizeof(char)) + 1);
 	if (!r)
 		return (NULL);
 	while (s[i + start] && i < len)

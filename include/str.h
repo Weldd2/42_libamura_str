@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:14:22 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 18:11:39 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/17 19:12:23 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include "mem.h"
 
 size_t	str_strlen(const char *s);
 size_t	str_strlcpy(char *dst, const char *src, size_t size);
