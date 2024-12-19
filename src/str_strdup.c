@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:41:13 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 19:17:13 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/19 05:01:02 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*str_strdup(const char *s)
 
 	compteur = 0;
 	s_len = str_strlen(s);
-	s_cpy = mem_arena_alloc((sizeof(char) * s_len) + 1);
+	s_cpy = mem_mgc_alloc((sizeof(char) * s_len) + 1);
 	if (!s_cpy)
 		return (NULL);
 	while (compteur < s_len)
