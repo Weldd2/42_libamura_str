@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 04:57:26 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/19 04:59:18 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/19 05:03:30 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*str_strsplitchar(char *str)
 	if (str == NULL)
 		return NULL;
 	length = str_strlen(str);
-	char_array = (char*)str_mgc_alloc((length + 1) * sizeof(char));
+	char_array = (char*)mem_mgc_alloc((length + 1) * sizeof(char));
 	if (char_array == NULL)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:14:22 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 19:12:23 by antoinemura      ###   ########.fr       */
+/*   Updated: 2024/12/19 05:02:49 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	*str_strtrim(char const *s1, char const *set);
 char	**str_split(char *s, char c);
 int		str_strequals(char *s1, char *s2);
 char	*str_strvjoin(char *str, ...);
+char	*str_strsplitchar(char *str);
 
 #endif
