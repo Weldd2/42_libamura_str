@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/19 05:01:08 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/07 13:34:55 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL || f == NULL)
 		return (NULL);
 	c = 0;
-	r = (char *)mem_mgc_alloc(sizeof(char) * (str_strlen(s) + 1));
+	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
 	if (!r)
 		return (NULL);
 	while (s[c])
