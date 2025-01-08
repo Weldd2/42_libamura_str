@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_replace_sub.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/08 15:40:51 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/08 15:40:58 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+void	str_replace_sub(char **str, unsigned int start, size_t len)
 {
-	char	*r;
-	int		c;
+	char	*sub;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
-	{
-		r[c] = f(c, s[c]);
-		c++;
-	}
-	r[c] = '\0';
-	return (r);
+	if (!str || !(*str))
+		return ;
+	sub = mem_calloc(len + 1, sizeof(char));
+	if (!sub)
+		return ;
+	mem_memcpy(sub, *str + start, len);
+	free(*str);
+	*str = sub;
 }

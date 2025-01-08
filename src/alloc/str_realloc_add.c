@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_realloc_add.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/07 18:01:42 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/07 18:22:17 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+void	str_realloc_add(char **str, size_t added_size)
 {
-	char	*r;
-	int		c;
+	char	*cpy;
+	size_t	new_size;
+	size_t	old_size;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
-	{
-		r[c] = f(c, s[c]);
-		c++;
-	}
-	r[c] = '\0';
-	return (r);
+	old_size = str_strlen(*str);
+	new_size = old_size + added_size;
+	cpy = mem_calloc(new_size + 1, sizeof(char));
+	mem_memcpy(cpy, *str, old_size);
+	free(*str);
+	*str = cpy;
 }

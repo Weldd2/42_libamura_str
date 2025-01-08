@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_strcat_until.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/07 17:35:28 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/08 15:27:15 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+size_t	str_strcat_until(char *dest, char *src, char until)
 {
-	char	*r;
-	int		c;
+	int	i;
+	int	j;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	i = 0;
+	j = str_strlen(dest);
+	while (src[i] != '\0' && src[i] != until)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		dest[j] = src[i];
+		j++;
+		i++;
 	}
-	r[c] = '\0';
-	return (r);
+	dest[j] = src[i];
+	dest[j + 1] = '\0';
+	return (i + j);
 }

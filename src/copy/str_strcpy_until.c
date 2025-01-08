@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_substr.c                                       :+:      :+:    :+:   */
+/*   str_strcpy_until.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:09:43 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 19:13:17 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/07 15:12:03 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/07 16:21:40 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_substr(char const *s, unsigned int start, size_t len)
+size_t	str_strcpy_until(char *dst, char *src, char until)
 {
-	char	*r;
-	size_t	i;
-	char	max;
+	int	i;
 
-	if (start > str_strlen(s))
-		return (str_strdup(""));
 	i = 0;
-	if (str_strlen(s) - start > len)
-		max = len;
-	else
-		max = str_strlen(s) - start;
-	r = mem_arena_alloc((max * sizeof(char)) + 1);
-	if (!r)
-		return (NULL);
-	while (s[i + start] && i < len)
-	{
-		r[i] = s[i + start];
+	while (src[i] != until && src[i] != '\0')
 		i++;
-	}
-	r[i] = '\0';
-	return (r);
+	if (dst != NULL)
+		str_strlcpy(dst, src, i + 1);
+	if (src[i] != until)
+		return (-1);
+	return (i);
 }

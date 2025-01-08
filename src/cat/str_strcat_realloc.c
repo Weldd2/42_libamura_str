@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_strcat_realloc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/07 22:18:56 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/08 15:27:22 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+void	str_strcat_realloc(char **dest, char *src, size_t realloc_size)
 {
-	char	*r;
-	int		c;
+	int	dest_len;
+	int	src_len;
+	int	i;
+	int	j;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	if (*dest == NULL)
+		return ;
+	dest_len = str_strlen(*dest);
+	src_len = str_strlen(src);
+	i = 0;
+	while (i < src_len)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		str_realloc_add(dest, realloc_size);
+		j = 0;
+		while (j < realloc_size && i < src_len)
+		{
+			(*dest)[dest_len + i] = src[i];
+			i++;
+			j++;
+		}
 	}
-	r[c] = '\0';
-	return (r);
+	(*dest)[dest_len + src_len] = '\0';
 }

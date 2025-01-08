@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_slice.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2025/01/08 15:40:28 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/08 15:40:35 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+void	str_slice(char *str, unsigned int start, size_t len)
 {
-	char	*r;
-	int		c;
+	size_t	i;
+	size_t	str_len;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	if (!str)
+		return ;
+	str_len = str_strlen(str);
+	if (start >= str_len)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		str[0] = '\0';
+		return ;
 	}
-	r[c] = '\0';
-	return (r);
+	i = 0;
+	while (i < len && (start + i) < str_len)
+	{
+		str[i] = str[start + i];
+		i++;
+	}
+	str[i] = '\0';
 }

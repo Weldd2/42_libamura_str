@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:46:02 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/17 19:12:54 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/07 16:35:43 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*str_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	s = (char *)mem_arena_alloc(
-			sizeof(char) * (str_strlen(s2) + str_strlen(s1) + 1));
+	s = (char *)mem_calloc((str_strlen(s2) + str_strlen(s1) + 1), sizeof(char));
 	if (!s)
 		return (NULL);
 	i = 0;

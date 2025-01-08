@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_substr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:38:24 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/12/17 18:09:43 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/08 15:40:44 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*str_extract_sub(char const *s, unsigned int start, size_t len)
 {
 	char	*r;
-	int		c;
+	size_t	i;
 
-	if (s == NULL || f == NULL)
+	i = 0;
+	r = mem_calloc(len + 1, sizeof(char));
+	if (!r || !s)
 		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	while (s[i + start] && i < len)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		r[i] = s[i + start];
+		i++;
 	}
-	r[c] = '\0';
+	r[i] = '\0';
 	return (r);
 }
