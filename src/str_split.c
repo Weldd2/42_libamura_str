@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 22:53:40 by antoinemura       #+#    #+#             */
-/*   Updated: 2024/12/17 19:12:29 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/07 13:33:50 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ char	**str_split(char *s, char c)
 	int		i;
 
 	i = 0;
-	r = mem_arena_alloc(sizeof(char *) * (str_count_words(s, c) + 1));
+	r = malloc(sizeof(char *) * (str_count_words(s, c) + 1));
 	if (!r)
 		return (NULL);
 	s = a(s, c);
 	while (*s)
 	{
 		word_l = str_getword_l(s, c);
-		r[i] = (char *)mem_arena_alloc(sizeof(char) * (word_l + (word_l != 0)));
+		r[i] = (char *)malloc(sizeof(char) * (word_l + (word_l != 0)));
 		if (!r[i])
 			return (NULL);
 		s = a(s, c);

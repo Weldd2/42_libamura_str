@@ -6,7 +6,11 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:14:22 by antoinemura       #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/01/08 15:40:03 by antoinemura      ###   ########.fr       */
+=======
+/*   Updated: 2024/12/19 05:02:49 by antoinemura      ###   ########.fr       */
+>>>>>>> c9ec07b0ab91c955cfc5978bff317c79d72c7a6c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +63,7 @@ void	str_realloc_add(char **str, size_t added_size);
 void	str_realloc(char **str, size_t new_size);
 void	str_strcat_realloc(char **dest, char *src, size_t realloc_size);
 int		str_strcontains(char *str, char c);
+char	*str_strsplitchar(char *str);
 
 /**
  * Extracts a substring from the given string `s`, starting at index `start`

@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:46:02 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/07 16:35:43 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/08 15:50:38 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*str_strvjoin(char *str, ...)
 
 	if (!str)
 		return (NULL);
-	r = (char *)mem_arena_alloc(sizeof(char));
+	r = (char *)malloc(sizeof(char));
 	if (!r)
 		return (NULL);
 	r[0] = '\0';

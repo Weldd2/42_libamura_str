@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_strmapi.c                                      :+:      :+:    :+:   */
+/*   str_strsplitchar.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 18:10:25 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:50:43 by antoinemura      ###   ########.fr       */
+/*   Created: 2024/12/19 04:57:26 by antoinemura       #+#    #+#             */
+/*   Updated: 2025/01/07 13:35:00 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
 
-char	*str_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*str_strsplitchar(char *str)
 {
-	char	*r;
-	int		c;
-
-	if (s == NULL || f == NULL)
+	size_t	length;
+	char	*char_array;
+	int		i;
+	
+	if (str == NULL)
+		return NULL;
+	length = str_strlen(str);
+	char_array = (char*)malloc((length + 1) * sizeof(char));
+	if (char_array == NULL)
 		return (NULL);
-	c = 0;
-	r = (char *)malloc(sizeof(char) * (str_strlen(s) + 1));
-	if (!r)
-		return (NULL);
-	while (s[c])
+	i = 0;
+	while (i < (int)length)
 	{
-		r[c] = f(c, s[c]);
-		c++;
+		char_array[i] = str[i];
+		i++;
 	}
-	r[c] = '\0';
-	return (r);
+	char_array[length] = '\0';
+	return (char_array);
 }
