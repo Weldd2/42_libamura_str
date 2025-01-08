@@ -6,11 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:14:22 by antoinemura       #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/08 15:40:03 by antoinemura      ###   ########.fr       */
-=======
-/*   Updated: 2024/12/19 05:02:49 by antoinemura      ###   ########.fr       */
->>>>>>> c9ec07b0ab91c955cfc5978bff317c79d72c7a6c
+/*   Updated: 2025/01/08 15:55:20 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
