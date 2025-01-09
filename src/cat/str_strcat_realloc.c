@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 22:18:56 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:27:22 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/09 23:38:09 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	str_strcat_realloc(char **dest, char *src, size_t realloc_size)
 	{
 		str_realloc_add(dest, realloc_size);
 		j = 0;
-		while (j < realloc_size && i < src_len)
+		while (j < (int)realloc_size && i < src_len)
 		{
 			(*dest)[dest_len + i] = src[i];
 			i++;
