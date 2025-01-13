@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:10:13 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/08 15:50:50 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/13 17:06:11 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*str_strtrim(char const *s1, char const *set)
 		start++;
 	while (end >= start && str_strchr(set, *end))
 		end--;
-	r = (char *)malloc(1 + (end - start + 1) * sizeof(char));
+	r = (char *)mem_malloc(1 + (end - start + 1) * sizeof(char));
 	if (!r)
 		return (NULL);
 	r_cpy = r;

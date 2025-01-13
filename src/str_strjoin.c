@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:46:02 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/08 15:50:38 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/13 17:06:33 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*str_strvjoin(char *str, ...)
 
 	if (!str)
 		return (NULL);
-	r = (char *)malloc(sizeof(char));
+	r = (char *)mem_malloc(sizeof(char));
 	if (!r)
 		return (NULL);
 	r[0] = '\0';
@@ -59,7 +59,7 @@ char	*str_strvjoin(char *str, ...)
 	{
 		temp = r;
 		r = str_strjoin(r, next_str);
-		free(temp);
+		mem_free(temp);
 		if (!r)
 			return (va_end(ap), NULL);
 		next_str = va_arg(ap, char *);

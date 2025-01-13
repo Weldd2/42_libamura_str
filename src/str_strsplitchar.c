@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 04:57:26 by antoinemura       #+#    #+#             */
-/*   Updated: 2025/01/07 13:35:00 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/13 20:27:18 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*str_strsplitchar(char *str)
 	size_t	length;
 	char	*char_array;
 	int		i;
-	
+
 	if (str == NULL)
-		return NULL;
+		return (NULL);
 	length = str_strlen(str);
-	char_array = (char*)malloc((length + 1) * sizeof(char));
+	char_array = (char *)mem_malloc((length + 1) * sizeof(char));
 	if (char_array == NULL)
 		return (NULL);
 	i = 0;
