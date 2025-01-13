@@ -6,7 +6,7 @@
 /*   By: antoinemura <antoinemura@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:36:22 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/19 03:16:18 by antoinemura      ###   ########.fr       */
+/*   Updated: 2025/01/12 18:35:43 by antoinemura      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	str_strlen(const char *s)
 	const char		*s_cpy;
 	size_t			compteur;
 
+	if (s == NULL)
+		return (0);
 	s_cpy = s;
 	compteur = 0;
 	while (*s_cpy)
